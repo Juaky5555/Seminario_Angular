@@ -1,0 +1,38 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Producto</th>
+            <th>Marca</th>
+            <th>Precio</th>
+            <th>Cantidad disponible</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img [src]="product.image" [alt]="product.name" width="100"></td>
+            <td>{{product.name}}</td>
+            <td>{{product.brand}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.stock}}</td>
+        </tr>
+        <tr>
+            <td>Alimento para perro adulto</td>
+            <td>DogChow</td>
+            <td>$4500</td>
+            <td>250</td>
+        </tr>
+        <tr>
+            <td>Alimento para gato cachorro</td>
+            <td>Wiskas</td>
+            <td>$4500</td>
+            <td>150</td>
+        </tr>
+        <tr>
+            <td>Alimento para gato adulto</td>
+            <td>Wiskas</td>
+            <td>$3500</td>
+            <td>200</td>
+        </tr>
+    </tbody>
+</table>

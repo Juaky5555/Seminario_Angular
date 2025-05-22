@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'tienda_veterinaria';
+  title = 'Tienda veterinaria';
 }
