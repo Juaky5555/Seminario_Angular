@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './product';
 
 @Component({
   selector: 'app-products-list',
@@ -7,10 +8,38 @@ import { Component } from '@angular/core';
   styleUrl: './products-list.component.scss'
 })
 export class ProductsListComponent {
-  product = {"name" : "Alimento para perro cachorro",
+  products: Product[] = [
+            {
+              "name" : "Alimento para perro cachorro",
               "brand" : "DogChow",
-              "price" : "$5000",
-              "stock" : "299",
-              "image" : 'assets/img/young_dog_dogchow.png'}
-  
+              "price" : 5000,
+              "stock" : 299,
+              "image" : 'assets/img/young_dog_dogchow.png',
+              "clearance" : false,
+            },
+            {
+              "name" : "Alimento para perro adulto",
+              "brand" : "DogChow",
+              "price" : 4500,
+              "stock" : 250,
+              "image" : 'assets/img/adult_dog_dogchow.jpg',
+              "clearance" : true,
+            },
+            {
+              "name" : "Alimento para gato cachorro",
+              "brand" : "Wiskas",
+              "price" : 4500,
+              "stock" : 0,
+              "image" : 'assets/img/young_cat_wiskas.jpg',
+              "clearance" : false,
+            },
+            {
+              "name" : "Alimento para gato adulto",
+              "brand" : "Wiskas",
+              "price" : 3500,
+              "stock" : 200,
+              "image" : 'assets/img/adult_cat_wiskas.jpg',
+              "clearance" : false,
+            }
+          ]
 }

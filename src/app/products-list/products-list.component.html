@@ -5,34 +5,16 @@
             <th>Producto</th>
             <th>Marca</th>
             <th>Precio</th>
-            <th>Cantidad disponible</th>
+            <th>Disponibilidad</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><img [src]="product.image" [alt]="product.name" width="100"></td>
-            <td>{{product.name}}</td>
-            <td>{{product.brand}}</td>
-            <td>{{product.price}}</td>
-            <td>{{product.stock}}</td>
-        </tr>
-        <tr>
-            <td>Alimento para perro adulto</td>
-            <td>DogChow</td>
-            <td>$4500</td>
-            <td>250</td>
-        </tr>
-        <tr>
-            <td>Alimento para gato cachorro</td>
-            <td>Wiskas</td>
-            <td>$4500</td>
-            <td>150</td>
-        </tr>
-        <tr>
-            <td>Alimento para gato adulto</td>
-            <td>Wiskas</td>
-            <td>$3500</td>
-            <td>200</td>
+        <tr *ngFor = "let Product of products" [ngClass] = "{'clearance' : Product.clearance}">
+            <td><img [src]="Product.image" [alt]="Product.name" width="100" height="100"></td>
+            <td>{{Product.name}}</td>
+            <td>{{Product.brand}}</td>
+            <td>{{Product.price | currency}}</td>
+            <td> <span class = "badge bg-warning text-dark" *ngIf = "Product.stock == 0"> SIN STOCK </span><span class="badge bg-success" *ngIf = "Product.stock > 0"> DISPONIBLE </span> </td>
         </tr>
     </tbody>
 </table>
