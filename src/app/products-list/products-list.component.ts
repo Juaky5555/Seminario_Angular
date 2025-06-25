@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from './product';
+import { Product } from './Product';
 
 @Component({
   selector: 'app-products-list',
@@ -16,6 +16,7 @@ export class ProductsListComponent {
               "stock" : 299,
               "image" : 'assets/img/young_dog_dogchow.png',
               "clearance" : false,
+              "quantity" : 0,
             },
             {
               "name" : "Alimento para perro adulto",
@@ -24,6 +25,7 @@ export class ProductsListComponent {
               "stock" : 250,
               "image" : 'assets/img/adult_dog_dogchow.jpg',
               "clearance" : true,
+              "quantity" : 0,
             },
             {
               "name" : "Alimento para gato cachorro",
@@ -32,6 +34,7 @@ export class ProductsListComponent {
               "stock" : 0,
               "image" : 'assets/img/young_cat_wiskas.jpg',
               "clearance" : false,
+              "quantity" : 0,
             },
             {
               "name" : "Alimento para gato adulto",
@@ -40,6 +43,19 @@ export class ProductsListComponent {
               "stock" : 200,
               "image" : 'assets/img/adult_cat_wiskas.jpg',
               "clearance" : false,
+              "quantity" : 0,
             }
           ]
+
+  upQuantity(product: Product): void {
+    if(product.quantity < product.stock){
+      product.quantity++;
+    }
+  }
+
+  downQuantity(product: Product): void {
+    if(product.quantity > 0){
+      product.quantity--;
+    }
+  }
 }

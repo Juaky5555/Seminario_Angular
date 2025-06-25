@@ -6,3 +6,9 @@ table {
     border: 2px solid green;
     background: lightgreen;
 }
+//Para quitarle las flechitas molestas al input tipo number
+.input-number::-webkit-outer-spin-button,
+.input-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
