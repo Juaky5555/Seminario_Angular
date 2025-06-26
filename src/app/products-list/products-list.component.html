@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table text-center">
     <thead>
         <tr>
             <th>Imagen</th>
@@ -17,9 +17,11 @@
             <td>{{Product.price | currency}}</td>
             <td> <span class = "badge bg-warning text-dark" *ngIf = "Product.stock == 0"> SIN STOCK </span><span class="badge bg-success" *ngIf = "Product.stock > 0"> DISPONIBLE </span> </td>
             <td>
-                <button class="btn btn-outline-primary btn-sm" (click)="downQuantity(Product)">-</button>
-                <input class="col-3 input-number" type="number" [(ngModel)]="Product.quantity" (ngModelChange)="checkQuantity(Product)" [disabled]="Product.stock <= 0">
-                <button class="btn btn-outline-primary btn-sm" (click)="upQuantity(Product)">+</button>
+                <div class="input-group" *ngIf = "Product.stock > 0">
+                    <button class="btn btn-outline-primary" (click)="downQuantity(Product)">-</button>
+                    <input class="input_number form-control" type="number" [(ngModel)]="Product.quantity" (ngModelChange)="checkQuantity(Product)" [disabled]="Product.stock <= 0">
+                    <button class="btn btn-outline-primary" (click)="upQuantity(Product)">+</button>
+                </div>
             </td>
         </tr>
     </tbody>
