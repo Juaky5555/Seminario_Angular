@@ -58,4 +58,12 @@ export class ProductsListComponent {
       product.quantity--;
     }
   }
+
+  checkQuantity(product: Product) {
+    if (product.quantity > product.stock) {
+      product.quantity = product.stock;
+    } else if (product.quantity < 0) {
+      product.quantity = 0;
+    }
+  }
 }
