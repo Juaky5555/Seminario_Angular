@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from './Product';
+import { ProductCartService } from '../product-cart.service';
+import { producerIncrementEpoch } from '@angular/core/primitives/signals';
 
 @Component({
   selector: 'app-products-list',
@@ -47,4 +49,13 @@ export class ProductsListComponent {
               "quantity" : 0,
             }
           ]
+
+  constructor(private cart: ProductCartService){
+  }
+
+  addToCart(product: Product){
+    this.cart.addToCart(product);
+    product.stock -= product.quantity;
+    product.quantity = 0;
+  }
 }

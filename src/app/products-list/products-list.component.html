@@ -19,6 +19,7 @@
             <td> <span class = "badge bg-warning text-dark" *ngIf = "product.stock == 0"> SIN STOCK </span><span class="badge bg-success" *ngIf = "product.stock > 0"> DISPONIBLE </span> </td>
             <td>
                 <app-input-number [(quantity)]="product.quantity" [max]="product.stock" *ngIf = "product.stock > 0"></app-input-number>
+                <button class="btn btn-primary" (click)="addToCart(product)" *ngIf = "product.stock > 0">Agregar</button>
             </td>
         </tr>
     </tbody>
