@@ -18,7 +18,7 @@
             <td>{{product.price | currency}}</td>
             <td> <span class = "badge bg-warning text-dark" *ngIf = "product.stock == 0"> SIN STOCK </span><span class="badge bg-success" *ngIf = "product.stock > 0"> DISPONIBLE </span> </td>
             <td>
-                <app-stock-input [product]="product" *ngIf = "product.stock > 0"></app-stock-input>
+                <app-input-number [(quantity)]="product.quantity" [max]="product.stock" *ngIf = "product.stock > 0"></app-input-number>
             </td>
         </tr>
     </tbody>

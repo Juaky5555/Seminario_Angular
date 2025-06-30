@@ -1,5 +1,0 @@
-<div class="input-group">
-    <button class="btn btn-outline-primary" (click)="downQuantity(product)">-</button>
-    <input class="input_number form-control" type="number" [(ngModel)]="product.quantity" (ngModelChange)="checkQuantity(product)" [disabled]="product.stock <= 0">
-    <button class="btn btn-outline-primary" (click)="upQuantity(product)">+</button>
-</div>

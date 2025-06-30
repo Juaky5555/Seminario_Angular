@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { VetAboutComponent } from './vet-about/vet-about.component';
 import { VetProductsComponent } from './vet-products/vet-products.component';
 import { CartComponent } from './cart/cart.component';
-import { StockInputComponent } from './stock-input/stock-input.component';
+import { InputNumberComponent } from './input-number/input-number.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { StockInputComponent } from './stock-input/stock-input.component';
     VetAboutComponent,
     VetProductsComponent,
     CartComponent,
-    StockInputComponent
+    InputNumberComponent
   ],
   imports: [
     BrowserModule,
