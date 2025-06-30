@@ -7,6 +7,7 @@ import { Product } from './Product';
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.scss'
 })
+
 export class ProductsListComponent {
   products: Product[] = [
             {
@@ -46,24 +47,4 @@ export class ProductsListComponent {
               "quantity" : 0,
             }
           ]
-
-  upQuantity(product: Product): void {
-    if(product.quantity < product.stock){
-      product.quantity++;
-    }
-  }
-
-  downQuantity(product: Product): void {
-    if(product.quantity > 0){
-      product.quantity--;
-    }
-  }
-
-  checkQuantity(product: Product) {
-    if (product.quantity > product.stock) {
-      product.quantity = product.stock;
-    } else if (product.quantity < 0) {
-      product.quantity = 0;
-    }
-  }
 }

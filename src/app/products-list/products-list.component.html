@@ -11,18 +11,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let Product of products" [ngClass] = "{'clearance' : Product.clearance}">
-            <td><img [src]="Product.image" [alt]="Product.name" class="img-thumbnail" width="100" height="100"></td>
-            <td>{{Product.name}}</td>
-            <td>{{Product.brand}}</td>
-            <td>{{Product.price | currency}}</td>
-            <td> <span class = "badge bg-warning text-dark" *ngIf = "Product.stock == 0"> SIN STOCK </span><span class="badge bg-success" *ngIf = "Product.stock > 0"> DISPONIBLE </span> </td>
+        <tr *ngFor = "let product of products" [ngClass] = "{'clearance' : product.clearance}">
+            <td><img [src]="product.image" [alt]="product.name" class="img-thumbnail" width="100" height="100"></td>
+            <td>{{product.name}}</td>
+            <td>{{product.brand}}</td>
+            <td>{{product.price | currency}}</td>
+            <td> <span class = "badge bg-warning text-dark" *ngIf = "product.stock == 0"> SIN STOCK </span><span class="badge bg-success" *ngIf = "product.stock > 0"> DISPONIBLE </span> </td>
             <td>
-                <div class="input-group" *ngIf = "Product.stock > 0">
-                    <button class="btn btn-outline-primary" (click)="downQuantity(Product)">-</button>
-                    <input class="input_number form-control" type="number" [(ngModel)]="Product.quantity" (ngModelChange)="checkQuantity(Product)" [disabled]="Product.stock <= 0">
-                    <button class="btn btn-outline-primary" (click)="upQuantity(Product)">+</button>
-                </div>
+                <app-stock-input [product]="product" *ngIf = "product.stock > 0"></app-stock-input>
             </td>
         </tr>
     </tbody>
