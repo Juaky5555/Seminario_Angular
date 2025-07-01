@@ -10,6 +10,7 @@ import { VetAboutComponent } from './vet-about/vet-about.component';
 import { VetProductsComponent } from './vet-products/vet-products.component';
 import { CartComponent } from './cart/cart.component';
 import { InputNumberComponent } from './input-number/input-number.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { InputNumberComponent } from './input-number/input-number.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(withEventReplay())
