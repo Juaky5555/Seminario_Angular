@@ -5,21 +5,33 @@
             <th>Imagen</th>
             <th>Producto</th>
             <th>Marca</th>
+            <th>Cantidad</th>
             <th>Precio</th>
             <th>Disponibilidad</th>
             <th>Compra</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let product of products" [ngClass] = "{'clearance' : product.clearance}">
+        <tr *ngFor = "let product of products">
             <td><img [src]="product.image" [alt]="product.name" class="img-thumbnail" width="100" height="100"></td>
             <td>{{product.name}}</td>
             <td>{{product.brand}}</td>
-            <td>{{product.price | currency}}</td>
-            <td> <span class = "badge bg-warning text-dark" *ngIf = "product.stock == 0"> SIN STOCK </span><span class="badge bg-success" *ngIf = "product.stock > 0"> DISPONIBLE </span> </td>
+            <td>{{product.weight}} Kg</td>
             <td>
-                <app-input-number [(quantity)]="product.quantity" [max]="product.stock" *ngIf = "product.stock > 0"></app-input-number>
-                <button class="btn btn-primary" (click)="addToCart(product)" *ngIf = "product.stock > 0">Agregar</button>
+                <span class="d-flex" [ngClass]="{'clearance' : product.clearance}">{{product.price | currency}}</span>
+                <span class="d-flex" *ngIf="product.clearance">{{product.price/2 | currency}}</span>
+            </td>
+            <td> 
+                <span class="badge bg-warning text-dark" *ngIf = "product.stock == 0"> SIN STOCK </span>
+                <span class="badge bg-success" *ngIf = "product.stock > 0"> DISPONIBLE </span>
+                <span class="badge bg-primary" *ngIf = "product.stock > 0 && product.clearance"> OFERTA </span>
+
+            </td>
+            <td>
+                <div *ngIf = "product.stock > 0">
+                    <app-input-number [(quantity)]="product.quantity" [max]="product.stock" ></app-input-number>
+                    <button class="btn btn-primary" (click)="addToCart(product)">Agregar</button>
+                </div>
             </td>
         </tr>
     </tbody>
